@@ -24,7 +24,7 @@ describe('ifElse', () => {
       expect(second).not.toHaveBeenCalled();
     });
 
-    it('should call condition() exactly once', () => {
+    it('should call condition() exactly once with no arguments', () => {
       const condition = jest.fn(() => true);
       const first = jest.fn();
       const second = jest.fn();
@@ -32,6 +32,7 @@ describe('ifElse', () => {
       ifElse(condition, first, second);
 
       expect(condition).toHaveBeenCalledTimes(1);
+      expect(condition).toHaveBeenCalledWith();
     });
   });
 
